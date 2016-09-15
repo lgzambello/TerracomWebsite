@@ -1,13 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--Fonts-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <script src="jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>Frances Roy</title>
 </head>
 <body>
 
+    <!--Top Options Container-->
+    <div class="tabContainer">
+        <img id="icons" src="images/icons.png">
+        <a href="" class="tab">
+            HOME
+        </a>
+        <a href="" class="tab">
+            ABOUT US
+        </a>
+        <a href="" class="tab">
+            SERVICES
+        </a>
+        <a href="" class="tab">
+            GALLERY
+        </a>
+        <a href="" class="tab">
+            BLOG
+        </a>
+        <a href="" class="tab">
+            CONTACT US
+        </a>
+    </div>
 
+    <ul class="header">
+        <li>
+            <HR width="150" id="line">
 
+        </li>
+        <li>
+            850.279.6510
+            <img>
+        </li>
+        <li>
+            HELLO@FRANCESROY.COM
+            <img>
+        </li>
+    </ul>
+
+    <img class="headerpics" id="sky" src="images/sky.png" onclick="imageSlide('sky')">
+    <img class="headerpics" id="sprouts" src="images/sproutsoranges.png" onclick="imageSlide('sprouts')">
+    <img class="headerpics" id="oranges" src="images/sproutsclose.png" onclick="imageSlide('oranges')">
+    <img class="headerpics" id="car" src="images/car.png" onclick="imageSlide('car')">
+
+    <!--Script to slide images when pressed-->
+    <script>
+        var skyPos = 0; //0 is left, 1 is right
+        var sproutsPos = 0;
+        var orangesPos = 0;
+        var carPos = 0;
+        var currentImg = 0; //0 is Car
+        var direction = ["left", "right"];
+        var images = ["car", "oranges", "sprouts", "sky"];
+        function imageSlide(img) {
+            var screenWidth = document.body.clientWidth;
+            var imgPos;
+            if (img == "sky") {
+                var left = $("#sky").css("left");
+                if (skyPos == 0) {
+                    var newLeft = 1.166*screenWidth - left;
+                    $("#sky").css("left", newLeft)
+                } else {
+                    var newLeft = 1.166*screenWidth - left
+                }
+            } else if (img == "sprouts") {
+                imgPos = sproutsPos;
+            } else if (img == "oranges") {
+                imgPos = orangesPos;
+            } else if (img == "car") {
+                imgPos = carPos;
+            } else {
+                throw new Error("Incorrect parameter for imageSlide function")
+            }
+        }
+    </script>
+
+    <div id="testimonial" class="separator">
+        <hr align="left" width="50%">
+        <hr align="right" width="28%">
+        <div id="testimonialText">
+            Testimonial
+        </div>
+    </div>
+
+    <div class="nameContainer">
+        <div id="clientName">FRANCES ROY</div>
+        <div id="clientDescription"> TESTIMONIAL AND REVIEWS GOES HERE EDOLOR IN REPREHENDERIT IN VOLUPTATE VELIT
+            ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT
+            NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.
+        </div>
+    </div>
+
+    <div id="services" class="separator">
+        <hr align="left" width="28%">
+        <hr align="right" width="56%">
+        <div id="servicesText">
+            Services
+        </div>
+    </div>
 
 
 
