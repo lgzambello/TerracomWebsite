@@ -55,6 +55,17 @@
 
     <!--Script to slide images when pressed-->
     <script>
+        function delay(ms) {
+            var cur_d = new Date();
+            var cur_ticks = cur_d.getTime();
+            var ms_passed = 0;
+            while(ms_passed < ms) {
+                var d = new Date();  // Possible memory leak?
+                var ticks = d.getTime();
+                ms_passed = ticks - cur_ticks;
+                d = null;  // Prevent memory leak?
+            }
+        }
         var skyPos = 0; //0 is left, 1 is right
         var sproutsPos = 0;
         var orangesPos = 0;
@@ -65,23 +76,36 @@
         function imageSlide(img) {
             var screenWidth = document.body.clientWidth;
             var imgPos;
-            if (img == "sky") {
-                var left = $("#sky").css("left");
-                if (skyPos == 0) {
-                    var newLeft = 1.166*screenWidth - left;
-                    $("#sky").css("left", newLeft)
+            if (img == "oranges") {
+                if (orangesPos == 0) {
+                    var left = $("#car").css("left");
+                    var leftInt = parseInt(left.substring(0, left.length - 2));
+                    var newLeft = 1.166*screenWidth - leftInt;
+                    var poop = 1
+                    while (leftInt < newLeft) {
+                        leftInt += 1;
+                        poop += 1;
+                        var test = $("#car").css("left");
+                        $("#car").css("left", leftInt);
+                        delay(1);
+                    }
+                    var poop = "poop";
                 } else {
                     var newLeft = 1.166*screenWidth - left
                 }
             } else if (img == "sprouts") {
                 imgPos = sproutsPos;
-            } else if (img == "oranges") {
-                imgPos = orangesPos;
+            } else if (img == "sky") {
+                imgPos = skyPos;
             } else if (img == "car") {
                 imgPos = carPos;
             } else {
                 throw new Error("Incorrect parameter for imageSlide function")
             }
+        }
+
+        function slide(img, currentLeft, endLeft) {
+
         }
     </script>
 
@@ -102,15 +126,36 @@
     </div>
 
     <div id="services" class="separator">
-        <hr align="left" width="28%">
-        <hr align="right" width="56%">
+        <hr align="left" width="22%">
+        <hr align="right" width="50%">
         <div id="servicesText">
             Services
         </div>
     </div>
 
+    <div id="pictureContainer">
+        <div id="column1">
+            <div id="c1p1">
+                <div id="c1p1header">
+                    SERVICE
+                </div>
+            </div>
+            <div id="c1p2">
+
+            </div>
+            <div id="c1p3">
+
+            </div>
+        </div>
+        <div id="column2">
+
+        </div>
+        <div id="column3">
+
+        </div>
 
 
+    </div>
 
 
 
