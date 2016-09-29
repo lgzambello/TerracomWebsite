@@ -26,15 +26,6 @@
     letter-spacing:0.5px;
 }
 
-
-.headerpics {
-    position: absolute;
-    top: 150px;
-    height: 800px;
-    width: 75%;
-    overflow: hidden;
-}
-
 #sky {
     left: 0px;
     height: 594px;
@@ -73,9 +64,17 @@
     letter-spacing:1px;
 }
 
+.headerpics {
+    position: absolute;
+    top: 150px;
+    height: 800px;
+    width: 75%;
+    overflow: hidden;
+}
+
 #icons {
     position: absolute;
-    right: 55px;
+    right: 3%;
     top: 45px;
     height: 85px;
 }
